@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Train cartpole1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "agent.py",
+            "console": "integratedTerminal",
+            "args": ["cartpole1", "--train"]
+        },
+        {
+            "name": "Train flappybird1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "agent.py",
+            "console": "integratedTerminal",
+            "args": ["flappybird1", "--train"]
+        }
+    ]
+}
