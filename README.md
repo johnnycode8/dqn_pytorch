@@ -38,7 +38,8 @@ This repository contains an implementation of the DQN algorithm from my Deep Q-L
 <a href='https://youtu.be/P7bnuiTVJS8&list=PL58zEckBH8fCMIVzQCRSZVPUp3ZAVagWi'><img src='https://img.youtube.com/vi/P7bnuiTVJS8/0.jpg' width='400' alt='Train DQN Algorithm on Flappy Bird'/></a>
 
 ## 10. Double DQN Explained and Implemented
-<a href='https://youtu.be/P7bnuiTVJS8&list=PL58zEckBH8fCMIVzQCRSZVPUp3ZAVagWi'><img src='https://img.youtube.com/vi/P7bnuiTVJS8/0.jpg' width='400' alt='Double DQN Explained and Implemented'/></a>
+<a href='https://youtu.be/FKOQTdcKkN4&list=PL58zEckBH8fCMIVzQCRSZVPUp3ZAVagWi'><img src='https://img.youtube.com/vi/FKOQTdcKkN4/0.jpg' width='400' alt='Double DQN Explained and Implemented'/></a>
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
