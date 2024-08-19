@@ -56,6 +56,7 @@ class Agent():
         self.stop_on_reward     = hyperparameters['stop_on_reward']         # stop training after reaching this number of rewards
         self.fc1_nodes          = hyperparameters['fc1_nodes']
         self.env_make_params    = hyperparameters.get('env_make_params',{}) # Get optional environment-specific parameters, default to empty dict
+        self.enable_double_dqn  = hyperparameters['enable_double_dqn']      # double dqn on/off flag
 
         # Neural Network
         self.loss_fn = nn.MSELoss()          # NN Loss function. MSE=Mean Squared Error can be swapped to something else.
@@ -247,13 +248,19 @@ class Agent():
         terminations = torch.tensor(terminations).float().to(device)
 
         with torch.no_grad():
-            # Calculate target Q values (expected returns)
-            target_q = rewards + (1-terminations) * self.discount_factor_g * target_dqn(new_states).max(dim=1)[0]
-            '''
-                target_dqn(new_states)  ==> tensor([[1,2,3],[4,5,6]])
-                    .max(dim=1)         ==> torch.return_types.max(values=tensor([3,6]), indices=tensor([3, 0, 0, 1]))
-                        [0]             ==> tensor([3,6])
-            '''
+            if self.enable_double_dqn:
+                best_actions_from_policy = policy_dqn(new_states).argmax(dim=1)
+
+                target_q = rewards + (1-terminations) * self.discount_factor_g * \
+                                target_dqn(new_states).gather(dim=1, index=best_actions_from_policy.unsqueeze(dim=1)).squeeze()
+            else:
+                # Calculate target Q values (expected returns)
+                target_q = rewards + (1-terminations) * self.discount_factor_g * target_dqn(new_states).max(dim=1)[0]
+                '''
+                    target_dqn(new_states)  ==> tensor([[1,2,3],[4,5,6]])
+                        .max(dim=1)         ==> torch.return_types.max(values=tensor([3,6]), indices=tensor([3, 0, 0, 1]))
+                            [0]             ==> tensor([3,6])
+                '''
 
         # Calcuate Q values from current policy
         current_q = policy_dqn(states).gather(dim=1, index=actions.unsqueeze(dim=1)).squeeze()
