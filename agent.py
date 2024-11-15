@@ -91,7 +91,7 @@ class Agent():
         rewards_per_episode = []
 
         # Create policy and target network. Number of nodes in the hidden layer can be adjusted.
-        policy_dqn = DQN(num_states, num_actions, self.fc1_nodes).to(device)
+        policy_dqn = DQN(num_states, num_actions, self.fc1_nodes, self.enable_double_dqn).to(device)
 
         if is_training:
             # Initialize epsilon
@@ -101,7 +101,7 @@ class Agent():
             memory = ReplayMemory(self.replay_memory_size)
 
             # Create the target network and make it identical to the policy network
-            target_dqn = DQN(num_states, num_actions, self.fc1_nodes).to(device)
+            target_dqn = DQN(num_states, num_actions, self.fc1_nodes, self.enable_double_dqn).to(device)
             target_dqn.load_state_dict(policy_dqn.state_dict())
 
             # Policy network optimizer. "Adam" optimizer can be swapped to something else.

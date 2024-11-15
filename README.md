@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# DQN PyTorch Beginner Tutorials
+# Implement DQN in PyTorch - Beginner Tutorials
 
 This repository contains an implementation of the DQN algorithm from my Deep Q-Learning, aka Deep Q-Network (DQN), YouTube ([@johnnycode](https://www.youtube.com/@johnnycode)) tutorial series. In this series, we code the DQN algorithm from scratch with Python and PyTorch, and then use it to train the Flappy Bird game. If you find the code and tutorials helpful, please consider supporting me:
 
@@ -59,6 +59,12 @@ Finally, we can train our DQN algorithm on Flappy Bird! I'll show the results of
 Since the introduction of DQN, there has been many enhancements to the algorithm. Double DQN (DDQN) was the first major enhancement. I explain the concept behind Double DQN using Flappy Bird as an example. The main objective of Double DQN is to reduce the time wasted exploring paths that don't lead to a good outcomes. However, it's important to note that DDQN may not always lead to significant performance gains in all environments.
 
 <a href='https://youtu.be/FKOQTdcKkN4&list=PL58zEckBH8fCMIVzQCRSZVPUp3ZAVagWi'><img src='https://img.youtube.com/vi/FKOQTdcKkN4/0.jpg' width='400' alt='Double DQN Explained and Implemented'/></a>
+
+
+## 11. Dueling DQN Explained and Implemented
+Dueling Architecture or Dueling DQN is another enhancement to the DQN algorithm. The main objective of Dueling DQN is to improve training efficiency by splitting the Q-values into two components: Value and Advantages. I explain the concept behind Dueling DQN using Flappy Bird as an example and also implement the Dueling Architecture changes in the DQN module.
+
+<a href='https://youtu.be/3ILECq5qxSk&list=PL58zEckBH8fCMIVzQCRSZVPUp3ZAVagWi'><img src='https://img.youtube.com/vi/3ILECq5qxSk/0.jpg' width='400' alt='Dueling DQN Explained and Implemented'/></a>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
